@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class Farm {
 
     private Cat[] cats;
@@ -23,6 +26,22 @@ public class Farm {
         this.totalAgeCows = this.calculateTotalAgeOfCows();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Farm farm = (Farm) o;
+        return totalAgeCats == farm.totalAgeCats && totalAgeDogs == farm.totalAgeDogs && totalAgeCows == farm.totalAgeCows && Arrays.equals(cats, farm.cats) && Arrays.equals(dogs, farm.dogs) && Arrays.equals(cows, farm.cows);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(totalAgeCats, totalAgeDogs, totalAgeCows);
+        result = 31 * result + Arrays.hashCode(cats);
+        result = 31 * result + Arrays.hashCode(dogs);
+        result = 31 * result + Arrays.hashCode(cows);
+        return result;
+    }
 
     public int calculateTotalAgeOfCats() {
         int totalAge = 0;
