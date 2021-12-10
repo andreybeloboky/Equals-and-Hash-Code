@@ -35,4 +35,12 @@ public class Dog {
     public int hashCode() {
         return Objects.hash(age, name);
     }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

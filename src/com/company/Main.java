@@ -8,9 +8,16 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Cat cat = new Cat(11, "Kek");
         Cat cat1 = new Cat(121, "Kek");
-        Dog dog = new Dog (11, "Kek");
+        Dog dog = new Dog(11, "Kek");
         Cow cow = new Cow(11, "Kek");
+        Farm farm = new Farm(new Cat[]{cat}, new Dog[]{dog}, new Cow[]{cow});
         System.out.println(cat.equals(dog));
+        System.out.println(dog.toString());
+        System.out.println(dog.getClass());
+        System.out.println(cat.hashCode());
+        System.out.println(dog.hashCode());
+        System.out.println(cow.hashCode());
+        System.out.println(farm.hashCode());
 
     }
 
